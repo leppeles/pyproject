@@ -1,13 +1,23 @@
 import torch
 import numpy as np
-import random
+from torch.nn import Linear
 
+w = torch.tensor(2.0,requires_grad = True)
+b = torch.tensor(-1.0,requires_grad = True)
 
+def forward(x):
+    y = w*x + b
+    return y
 
-x = torch.tensor(10.0,requires_grad = True)
+x = torch.tensor([[1.0],[2.0]])
+yhat = forward(x)
+#print(yhat)
 
-y = x**2 + 2*x + 1
+torch.manual_seed(10)
 
-y.backward()
+model = Linear(in_features=1,out_features=1)
+print(list(model.parameters()))
 
-print(x.grad)
+x=torch.tensor([[1.0],[2.0],[3.0],[4.0]])
+yhat = model(x)
+print(yhat)
