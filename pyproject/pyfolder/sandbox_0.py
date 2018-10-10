@@ -24,7 +24,6 @@ def criterion(yhat,y):
 
 learningrate = 0.1
 
-#for epoch in range(5):
 LOSS = []
 loss = 100
     
